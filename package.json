@@ -1,0 +1,16 @@
+{
+  "name": "myNodeApp",
+  "author": "Jaime Developer",
+  "description": "my test node.js application",
+  "version": "0.0.1",
+  "dependencies": {
+    "connect": "2.15.0",
+    "connect-route": "0.1.4"
+  },
+  "engine": "0.10.x",
+  "main": "app.js",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0"
+  }
+}
