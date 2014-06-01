@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var dao = require('./lib/mock-dao');
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
@@ -16,6 +17,26 @@ app.post('/add', function(req, res) {
     };
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(result));
+});
+
+app.get('/persons', function(req, res) {
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(dao.getAll()));
+});
+
+app.post('/persons', function(req, res) {
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(dao.add(req.body)));
+});
+
+app.get('/person/:id', function(req, res) {
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(dao.get(req.params.id)));
+});
+
+app.del('/person/:id', function(req, res) {
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(dao.remove(req.params.id)));
 });
 
 var server = app.listen(3000, function() {
