@@ -1,12 +1,8 @@
-var assert = require('assert');
 var dao = require('../lib/mock-dao');
-var testsCompleted = 0;
 
-function test() {
+exports.testGetAll = function(test) {
+	test.expect(1);
 	var persons = dao.getAll();
-	assert.equal(persons.length, 2, 'Two persons should exist.');
-	testsCompleted++;
+	test.equal(persons.length, 2, 'Two persons should exist.');
+	test.done();
 }
-
-test();
-console.log(testsCompleted);
