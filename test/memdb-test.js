@@ -1,4 +1,4 @@
-var dao = require('../lib/person-dao-mock');
+var dao = require('../lib/memdb');
 var assert = require('assert');
 
 describe('person-dao-mock', function() {

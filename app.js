@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var dao = require('./lib/mock-dao');
+var dao = require('./lib/memdb');
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
