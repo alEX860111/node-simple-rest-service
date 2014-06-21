@@ -29,12 +29,12 @@ app.post('/persons', function(req, res) {
     res.end(JSON.stringify(dao.add(req.body)));
 });
 
-app.get('/person/:id', function(req, res) {
+app.get('/persons/:id', function(req, res) {
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(dao.get(req.params.id)));
 });
 
-app.del('/person/:id', function(req, res) {
+app.del('/persons/:id', function(req, res) {
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(dao.remove(req.params.id)));
 });
