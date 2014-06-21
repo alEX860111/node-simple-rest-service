@@ -30,8 +30,13 @@ app.post('/persons', function(req, res) {
 });
 
 app.get('/persons/:id', function(req, res) {
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(dao.get(req.params.id)));
+    var found = dao.get(req.params.id);
+    if (found) {
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify(found));
+    } else {
+        res.status(404).send('The object with the id ' + req.params.id + ' does not exist.');
+    }
 });
 
 app.del('/persons/:id', function(req, res) {
