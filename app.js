@@ -33,3 +33,9 @@ app.del('/persons/:id', function(req, res) {
 var server = app.listen(3000, function() {
     console.log('Listening on port %d', server.address().port);
 });
+
+//catches ctrl+c event
+process.on('SIGINT', function () {
+  console.log("Closing !!!!!!");
+  server.close();
+});
