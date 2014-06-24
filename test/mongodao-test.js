@@ -1,10 +1,13 @@
 var dao = require('../lib/mongodao');
+var database = require('../lib/database.js');
 var assert = require('assert');
 
 describe('a', function() {
 
     after(function() {
-        dao.close();
+        database(function(db) {
+            db.close();
+        });
     });
 
     it('b', function(done) {
