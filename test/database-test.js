@@ -1,29 +1,26 @@
 var database = require('../lib/database.js');
 var assert = require('assert');
 
-describe('database', function() {
+describe('database()', function() {
 
-    it('', function(done) {
-        var db = database(function(db) {
-            assert.ok(db);
-            assert.equal(db.numCreatedDatabase, 1);
+    it('should insert a valid db object into the callback', function(done) {
+        database(function(db) {
+            assert.equal(db.id, 1);
             done();
         });
     });
 
-    it('', function(done) {
-        var db = database(function(db) {
-            assert.ok(db);
-            assert.equal(db.numCreatedDatabase, 1);
+    it('should insert the same db object into the callback', function(done) {
+        database(function(db) {
+            assert.equal(db.id, 1);
             db.close();
             done();
         });
     });
 
-    it('', function(done) {
-        var db = database(function(db) {
-            assert.ok(db);
-            assert.equal(db.numCreatedDatabase, 2);
+    it('should insert a new db object into the callback', function(done) {
+        database(function(db) {
+            assert.equal(db.id, 2);
             db.close();
             done();
         });
